@@ -2,10 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const { success } = require('../utils/apiResponse');
+const ctrl = require('../controllers/craneController');
 
-// Placeholder — full implementation in Phase 4
-router.get('/', (req, res) => success(res, [], 'Cranes endpoint — Phase 4'));
-router.get('/:id', (req, res) => success(res, null, 'Crane detail — Phase 4'));
+// GET /api/cranes?terminalCode=T1&status=ACTIVE&type=SHIP_TO_SHORE
+router.get('/', ctrl.list);
+
+// GET /api/cranes/:id — by MongoDB _id or craneId string (e.g. "C1-T1")
+router.get('/:id', ctrl.detail);
 
 module.exports = router;

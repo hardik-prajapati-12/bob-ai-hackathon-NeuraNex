@@ -2,11 +2,15 @@
 
 const express = require('express');
 const router = express.Router();
-const { success } = require('../utils/apiResponse');
+const ctrl = require('../controllers/berthController');
 
-// Placeholder — full implementation in Phase 4
-router.get('/', (req, res) => success(res, [], 'Berths endpoint — Phase 4'));
-router.get('/available', (req, res) => success(res, [], 'Available berths — Phase 4'));
-router.get('/:id', (req, res) => success(res, null, 'Berth detail — Phase 4'));
+// GET /api/berths?terminalCode=T1&status=AVAILABLE,OCCUPIED
+router.get('/', ctrl.list);
+
+// GET /api/berths/available?terminalCode=T1&minTEU=8000
+router.get('/available', ctrl.available);
+
+// GET /api/berths/:id — by MongoDB _id or berthId string (e.g. "B1-T1")
+router.get('/:id', ctrl.detail);
 
 module.exports = router;

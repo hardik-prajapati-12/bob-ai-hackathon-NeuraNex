@@ -2,11 +2,15 @@
 
 const express = require('express');
 const router = express.Router();
-const { success } = require('../utils/apiResponse');
+const ctrl = require('../controllers/terminalController');
 
-// Placeholder — full implementation in Phase 4
-router.get('/', (req, res) => success(res, [], 'Terminals endpoint — Phase 4'));
-router.get('/:id', (req, res) => success(res, null, 'Terminal detail — Phase 4'));
-router.get('/:id/summary', (req, res) => success(res, null, 'Terminal summary — Phase 4'));
+// GET /api/terminals
+router.get('/', ctrl.list);
+
+// GET /api/terminals/:id — by MongoDB _id or terminalId string (e.g. "T1")
+router.get('/:id', ctrl.detail);
+
+// GET /api/terminals/:id/summary
+router.get('/:id/summary', ctrl.summary);
 
 module.exports = router;

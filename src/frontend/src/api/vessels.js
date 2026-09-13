@@ -8,3 +8,6 @@ export const getVesselById = (id) =>
 
 export const getAtRiskVessels = () =>
   apiClient.get('/vessels/at-risk').then((r) => r.data);
+
+export const getVesselStats = () =>
+  apiClient.get('/vessels/stats').then((r) => r.data);
