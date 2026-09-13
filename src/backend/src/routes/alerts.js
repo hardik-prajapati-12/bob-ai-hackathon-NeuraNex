@@ -7,7 +7,7 @@ const Alert = require('../models/Alert');
 
 // GET /api/alerts
 // Returns alerts with optional filters: severity, type, acknowledged, terminalCode, page, limit
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   try {
     const page  = Math.max(1, parseInt(req.query.page, 10) || 1);
     const limit = Math.min(100, Math.max(1, parseInt(req.query.limit, 10) || 50));
@@ -32,24 +32,24 @@ router.get('/', async (req, res) => {
 
     return paginated(res, alerts, { page, limit, total, pages: Math.ceil(total / limit) });
   } catch (err) {
-    return error(res, err.message || 'Failed to load alerts', 500);
+    next(err);
   }
 });
 
 // GET /api/alerts/:id
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const alert = await Alert.findById(req.params.id).lean();
     if (!alert) return notFound(res, 'Alert not found');
     return success(res, alert, 'Alert');
   } catch (err) {
-    return error(res, err.message || 'Failed to load alert', 500);
+    next(err);
   }
 });
 
 // PUT /api/alerts/:id/acknowledge
 // Marks an alert as acknowledged by the current user (or 'Operator' if no auth)
-router.put('/:id/acknowledge', async (req, res) => {
+router.put('/:id/acknowledge', async (req, res, next) => {
   try {
     const alert = await Alert.findById(req.params.id);
     if (!alert) return notFound(res, 'Alert not found');
@@ -61,7 +61,7 @@ router.put('/:id/acknowledge', async (req, res) => {
 
     return success(res, alert.toObject(), 'Alert acknowledged');
   } catch (err) {
-    return error(res, err.message || 'Failed to acknowledge alert', 500);
+    next(err);
   }
 });
 

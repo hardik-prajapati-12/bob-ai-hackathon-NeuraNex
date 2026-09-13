@@ -10,7 +10,7 @@ const Berth = require('../models/Berth');
 
 // GET /api/dashboard/summary
 // Returns live KPI snapshot for the dashboard overview
-router.get('/summary', async (req, res) => {
+router.get('/summary', async (req, res, next) => {
   try {
     const [congestion, vesselStats, activeAlerts, berths] = await Promise.all([
       congestionService.getCurrentCongestion(),
@@ -46,13 +46,13 @@ router.get('/summary', async (req, res) => {
       })),
     }, 'Dashboard summary');
   } catch (err) {
-    return error(res, err.message || 'Failed to load dashboard summary', 500);
+    next(err);
   }
 });
 
 // GET /api/dashboard/charts
 // Returns chart-ready time-series data for the dashboard
-router.get('/charts', async (req, res) => {
+router.get('/charts', async (req, res, next) => {
   try {
     const history = await congestionService.getCongestionHistory({ days: 14 });
     return success(res, {
@@ -61,7 +61,7 @@ router.get('/charts', async (req, res) => {
       berthUtilization: [],
     }, 'Dashboard charts');
   } catch (err) {
-    return error(res, err.message || 'Failed to load dashboard charts', 500);
+    next(err);
   }
 });
 
