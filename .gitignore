@@ -36,3 +36,6 @@ coverage/
 # Temporary
 *.tmp
 *.temp
+# Bob task history files (auto-generated, not source code)
+bob-tasks*.json
+
