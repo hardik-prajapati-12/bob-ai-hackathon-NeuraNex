@@ -1,0 +1,301 @@
+/* OptimizationCenterPage — Phase 6 */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* ── Top bar ── */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+.topBarLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+.pageTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.demoNote {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  letter-spacing: 0.05em;
+}
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* ── Terminal filter tabs ── */
+.terminalTabs {
+  display: flex;
+  gap: 4px;
+}
+.terminalTab {
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.terminalTab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.terminalTabActive {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Summary banner ── */
+.summaryBanner {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-sm);
+}
+.summaryCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+}
+.summaryValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.summaryLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Section ── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.sectionCount {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+/* ── Recommendation table ── */
+.tableWrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+.recTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+.recTable th {
+  text-align: left;
+  padding: 9px 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+.recTable td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+.recTable tbody tr:last-child td {
+  border-bottom: none;
+}
+.recTable tbody tr:hover {
+  background: var(--bg-card-hover);
+}
+
+/* ── Score bar ── */
+.scoreBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.scoreTrack {
+  width: 60px;
+  height: 4px;
+  background: var(--bg-secondary);
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.scoreFill {
+  height: 100%;
+  border-radius: 2px;
+}
+.scoreLabel {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+}
+
+/* ── No recommendation ── */
+.noMatch {
+  color: var(--risk-high);
+  font-size: 0.75rem;
+}
+
+/* ── Shortfall ── */
+.shortfall {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--risk-critical);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.ok {
+  color: var(--risk-low);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ── Reason cell ── */
+.reasonCell {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Conflicts ── */
+.conflictList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.conflictCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.conflictHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+.conflictType {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+.conflictExplanation {
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.conflictResolution {
+  font-size: 0.75rem;
+  color: var(--accent);
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.conflictResolutionLabel {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.conflictVessels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.conflictVesselChip {
+  font-size: 0.7rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 7px;
+  color: var(--text-secondary);
+}
+.conflictResourceChip {
+  font-size: 0.7rem;
+  background: var(--accent-dim);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 7px;
+  color: var(--accent);
+}
+
+/* ── Empty state ── */
+.emptyState {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding: 32px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .summaryBanner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .summaryBanner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
