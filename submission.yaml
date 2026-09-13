@@ -1,0 +1,48 @@
+project:
+  name: "PortMind AI"
+  tagline: "Predict congestion. Optimize operations. Act before delays happen."
+  description: >
+    PortMind AI is an intelligent container port operations platform that predicts
+    congestion hotspots, explains root causes, optimises berth and crane assignments,
+    and generates actionable 72-hour operations plans for port supervisors.
+  problem_statement: "L1 — Container Congestion Predictor & Port Operations Optimiser"
+  category: "Port Operations & Logistics"
+
+team:
+  name: "NeuraNex"
+  members:
+    - name: "NeuraNex Team"
+      role: "Full-Stack AI Engineer"
+
+technology:
+  primary_language: "JavaScript"
+  frameworks:
+    - "React"
+    - "Node.js"
+    - "Express.js"
+  database: "MongoDB"
+  ai_services:
+    - "IBM watsonx.ai"
+  tools:
+    - "IBM Bob"
+    - "Vite"
+    - "Recharts"
+
+repository:
+  type: "monorepo"
+  structure:
+    frontend: "src/frontend"
+    backend: "src/backend"
+
+demo:
+  type: "web_application"
+  notes: "See demo/ directory for screenshots and demo script"
+
+ibm_bob_integration:
+  used: true
+  areas:
+    - "Architecture design and planning"
+    - "Code generation — models, services, analytics, optimization"
+    - "Debugging and code review"
+    - "Test generation"
+    - "Documentation"

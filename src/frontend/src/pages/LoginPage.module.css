@@ -1,0 +1,123 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: var(--spacing-lg);
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+}
+
+.header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.logoTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.logoSub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.heading {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.subheading {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.passwordWrap {
+  position: relative;
+}
+
+.passwordWrap .input {
+  padding-right: 40px;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0;
+}
+
+.error {
+  font-size: 0.825rem;
+  color: var(--risk-critical);
+  background: var(--risk-critical-bg);
+  border: 1px solid var(--risk-critical);
+  border-radius: var(--border-radius);
+  padding: 8px 12px;
+}
+
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 4px;
+}
+
+.demoNote {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.demoTag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--risk-medium);
+}
