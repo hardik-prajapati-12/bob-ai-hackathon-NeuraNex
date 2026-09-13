@@ -4,11 +4,15 @@
   gap: var(--spacing-lg);
 }
 
+/* ─── KPI grid ────────────────────────────────────────────────────────────── */
+
 .kpiGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-md);
 }
+
+/* ─── Status row ──────────────────────────────────────────────────────────── */
 
 .statusRow {
   display: grid;
@@ -23,10 +27,25 @@
   margin-bottom: var(--spacing-md);
 }
 
+.sectionHeader h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sectionMeta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 .statusDesc {
   font-size: 0.875rem;
   color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
 }
+
+/* ─── System status ───────────────────────────────────────────────────────── */
 
 .systemStatus {
   display: flex;
@@ -63,17 +82,213 @@
   font-weight: 600;
 }
 
-.notice {
-  background: var(--accent-dim);
-  border: 1px solid var(--accent);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-md);
-  font-size: 0.825rem;
-  color: var(--text-secondary);
+/* ─── Vessel status breakdown ─────────────────────────────────────────────── */
+
+.statusBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.notice strong {
-  color: var(--accent);
+.statusBreakdownItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statusBreakdownLabel {
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.statusBreakdownCount {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+/* ─── Terminal grid ───────────────────────────────────────────────────────── */
+
+.terminalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.terminalCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.terminalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terminalName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terminalStats {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.terminalStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.terminalStatLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.terminalStatValue {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.berthBar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.berthBarFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.berthBarLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ─── At-risk vessels ─────────────────────────────────────────────────────── */
+
+.vesselList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.vesselRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: 10px var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+
+.vesselRow:last-child {
+  border-bottom: none;
+}
+
+.vesselRow:hover {
+  background: var(--surface);
+}
+
+.vesselInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.vesselName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vesselMeta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.vesselRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.waitHours {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--risk-medium);
+  font-weight: 600;
+}
+
+/* ─── Footer hints ────────────────────────────────────────────────────────── */
+
+.emptyMsg {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: var(--spacing-md) 0;
+  margin: 0;
+}
+
+.moreMsg {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 8px var(--spacing-md);
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin: 0;
+  background: var(--surface);
+}
+
+.refreshHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 2px 0;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1200px) {
+  .terminalGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 1100px) {
@@ -82,11 +297,17 @@
   }
 }
 
-@media (max-width: 700px) {
-  .kpiGrid {
+@media (max-width: 900px) {
+  .statusRow {
     grid-template-columns: 1fr;
   }
-  .statusRow {
+  .terminalGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .kpiGrid {
     grid-template-columns: 1fr;
   }
 }
